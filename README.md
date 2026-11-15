@@ -1,49 +1,53 @@
-# BengalVolt — GitHub Pages site
+# BengalVolt — GitHub Pages
 
-এটি সরাসরি GitHub Pages-এ প্রকাশযোগ্য বাংলা স্টোরফ্রন্ট। কোনো build command, framework বা install দরকার নেই। `index.html` এবং `assets/` একসঙ্গে repository-র root-এ রাখুন।
+বাংলা ভাষার BengalVolt অনলাইন স্টোরফ্রন্ট। এটি সরাসরি GitHub Pages-এ চলে; কোনো build command বা framework দরকার নেই।
 
 ## GitHub-এ প্রকাশ
 
-1. GitHub-এ একটি repository তৈরি করুন, যেমন `bengalvolt-storefront`।
-2. এই প্যাকেজের ভেতরের সবকিছু—`index.html`, `.nojekyll`, `README.md` এবং সম্পূর্ণ `assets` ফোল্ডার—repository-র root-এ আপলোড করুন। ফোল্ডারের গঠন যেন এমন থাকে:
+1. GitHub-এ repository তৈরি করুন।
+2. ZIP-এর ভেতরের `index.html`, `.nojekyll`, `README.md` এবং সম্পূর্ণ `assets` ফোল্ডারটি repository-র root-এ আপলোড করুন। ZIP ফাইলটি নিজে আপলোড করবেন না।
+3. repository-তে **Settings → Pages** খুলুন।
+4. **Build and deployment → Source**-এ **Deploy from a branch** বেছে নিন।
+5. Branch `main` এবং folder `/(root)` নির্বাচন করে **Save** দিন।
+6. প্রকাশের URL একই Pages পাতায় দেখা যাবে। প্রথম প্রকাশে কয়েক মিনিট লাগতে পারে।
 
-   ```text
-   repository/
-   ├── index.html
-   ├── .nojekyll
-   ├── README.md
-   └── assets/
-       ├── hero-safety.svg
-       ├── mcb.svg
-       ├── led-bulb.svg
-       ├── switch-socket.svg
-       ├── cable.svg
-       ├── panel-board.svg
-       └── led-panel.svg
-   ```
+Repository-র ফাইলের গঠন এমন রাখুন:
 
-3. GitHub repository-তে **Settings → Pages** খুলুন।
-4. **Build and deployment**-এর **Source** হিসেবে **Deploy from a branch** বেছে নিন।
-5. Branch `main` এবং folder `/(root)` বেছে **Save** করুন।
-6. Pages সেটিংসে সাইটের URL দেখা যাবে। প্রথম প্রকাশে কয়েক মিনিট লাগতে পারে।
+```text
+repository/
+├── index.html
+├── .nojekyll
+├── README.md
+└── assets/
+    ├── hero-reference.jpg
+    ├── family-reference.jpg
+    ├── bangladesh-reference.jpg
+    ├── cat-switch.jpg
+    ├── cat-led.jpg
+    ├── cat-breaker.jpg
+    ├── cat-board.jpg
+    ├── cat-cable.jpg
+    ├── cat-fan.jpg
+    ├── cat-pump.jpg
+    ├── cat-accessories.jpg
+    ├── prod-switch.jpg
+    ├── prod-socket.jpg
+    ├── prod-bulb.jpg
+    ├── prod-mcb.jpg
+    ├── prod-rccb.jpg
+    └── prod-panel.jpg
+```
 
-## পণ্য/ছবি যোগ করা
+## পণ্য ও ছবি বদলানো বা যোগ করা
 
-1. নতুন পণ্যের ছবি `assets/` ফোল্ডারে রাখুন। `jpg`, `png` বা `webp` ছবি ব্যবহার করতে পারেন। ফাইলের নাম ছোট হাতের ইংরেজিতে দিন, যেমন `new-mcb.jpg`।
-2. `index.html` খুলে JavaScript-এর `products` তালিকায় নতুন item যোগ করুন। উদাহরণ:
+`index.html`-এর নিচের দিকে `const products=[ ... ]` তালিকায় পণ্যের নাম, ধরন, দাম ও ছবির ফাইলের নাম আছে। নতুন ছবি `assets/`-এ আপলোড করে তালিকায় এভাবে item যোগ করুন:
 
-   ```js
-   {name:'নতুন MCB', description:'পণ্যের সংক্ষিপ্ত বিবরণ', image:'new-mcb.jpg', badge:'নতুন', category:'mcb'}
-   ```
+```js
+{name:'নতুন পণ্যের নাম',kind:'পণ্যের ধরন',price:'৳ ৫০০',image:'new-product.jpg'}
+```
 
-3. `index.html`-এর `assets/${p.image}` অংশটি ছবির URL-ஐ নিজে তৈরি করে, তাই `image`-এ `assets/` লিখবেন না।
-4. আপডেট করা `index.html` এবং নতুন ছবি GitHub repository-তে আপলোড/commit করুন। Pages স্বয়ংক্রিয়ভাবে আবার প্রকাশ করবে।
+`image`-এ শুধু ফাইলের নাম দিন; ছবিটি `assets/` ফোল্ডারে রাখুন। পণ্য পরিবর্তন করলে তার সঠিক নাম, দাম ও নিজস্ব পণ্যের ছবি ব্যবহার করুন।
 
-## যোগাযোগের নম্বর
+বর্তমান ছবিগুলো আপনার দেওয়া নকশার রেফারেন্স থেকে কেটে নেওয়া হয়েছে। মূল ছবির রেজোলিউশনের কারণে কিছু product thumbnail ছোট দেখাতে পারে; বিক্রির জন্য উচ্চ রেজোলিউশনের আসল product photo দিলে `assets/`-এ ফাইলটি রেখে তালিকার `image` মান বদলে দিন।
 
-ফোন ও WhatsApp লিংকে `+8801707944636` সেট করা আছে। নম্বর বদলালে `index.html`-এর `8801707944636` খুঁজে নতুন নম্বর বসান।
-
-## ছবি সম্পর্কে
-
-`assets/`-এর বর্তমান SVG-গুলো সাইটের জন্য তৈরি পণ্যের চিত্র। বিক্রির আসল পণ্যের ছবি পেলে একই ফোল্ডারে রেখে `products` তালিকার `image` মান বদলালেই হবে। নমুনা পণ্যের দাম ইচ্ছা করে দেওয়া নেই—অর্ডারকারী WhatsApp-এ দাম জানতে পারবেন।
-
+WhatsApp ও ফোন নম্বর `+8801707944636`। নম্বর বদলালে `index.html`-এ `8801707944636` খুঁজে নতুন নম্বর বসান।
