@@ -1,53 +1,23 @@
-# BengalVolt — GitHub Pages
+# BENGALVOLT store website
 
-বাংলা ভাষার BengalVolt অনলাইন স্টোরফ্রন্ট। এটি সরাসরি GitHub Pages-এ চলে; কোনো build command বা framework দরকার নেই।
+A responsive Bengali storefront based on the supplied homepage reference. The reference image supplies the hero, category, product, and family photos in `assets/`. The site includes product search, category filters, price display, photo upload, add/edit/delete controls, and JSON product backup and restore.
 
-## GitHub-এ প্রকাশ
+## Run locally
 
-1. GitHub-এ repository তৈরি করুন।
-2. ZIP-এর ভেতরের `index.html`, `.nojekyll`, `README.md` এবং সম্পূর্ণ `assets` ফোল্ডারটি repository-র root-এ আপলোড করুন। ZIP ফাইলটি নিজে আপলোড করবেন না।
-3. repository-তে **Settings → Pages** খুলুন।
-4. **Build and deployment → Source**-এ **Deploy from a branch** বেছে নিন।
-5. Branch `main` এবং folder `/(root)` নির্বাচন করে **Save** দিন।
-6. প্রকাশের URL একই Pages পাতায় দেখা যাবে। প্রথম প্রকাশে কয়েক মিনিট লাগতে পারে।
+Open `index.html` in a recent browser. Product edits are stored in that browser's local storage.
 
-Repository-র ফাইলের গঠন এমন রাখুন:
+## Publish with GitHub Pages
 
-```text
-repository/
-├── index.html
-├── .nojekyll
-├── README.md
-└── assets/
-    ├── hero-reference.jpg
-    ├── family-reference.jpg
-    ├── bangladesh-reference.jpg
-    ├── cat-switch.jpg
-    ├── cat-led.jpg
-    ├── cat-breaker.jpg
-    ├── cat-board.jpg
-    ├── cat-cable.jpg
-    ├── cat-fan.jpg
-    ├── cat-pump.jpg
-    ├── cat-accessories.jpg
-    ├── prod-switch.jpg
-    ├── prod-socket.jpg
-    ├── prod-bulb.jpg
-    ├── prod-mcb.jpg
-    ├── prod-rccb.jpg
-    └── prod-panel.jpg
-```
+1. Create a GitHub repository and upload `index.html`, `README.md`, and the `assets` folder (keep the folder structure intact).
+2. In the repository, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**, select the `main` branch and `/ (root)`, then save.
+4. GitHub will show the published site URL in the Pages settings.
 
-## পণ্য ও ছবি বদলানো বা যোগ করা
+You can update the site by editing these files and pushing the changes to the repository. GitHub Pages serves the website, but it does not provide a product database or secure admin login. Product changes made in the browser are local to that browser/device. Use **পণ্য ব্যাকআপ ডাউনলোড** to export a JSON backup, then **ব্যাকআপ থেকে আনুন** to restore it in the same browser or another browser. To share live product updates across devices and visitors, connect the page to a database and add authenticated admin access.
 
-`index.html`-এর নিচের দিকে `const products=[ ... ]` তালিকায় পণ্যের নাম, ধরন, দাম ও ছবির ফাইলের নাম আছে। নতুন ছবি `assets/`-এ আপলোড করে তালিকায় এভাবে item যোগ করুন:
+## Before launch
 
-```js
-{name:'নতুন পণ্যের নাম',kind:'পণ্যের ধরন',price:'৳ ৫০০',image:'new-product.jpg'}
-```
+- The business contact number in `index.html` is +8801707944636.
+- Replace demo products, prices, and descriptions with the real catalog using **⚙ পণ্য পরিচালনা**.
+- Product photos uploaded in the page are saved in that browser, not committed to the GitHub repository.
 
-`image`-এ শুধু ফাইলের নাম দিন; ছবিটি `assets/` ফোল্ডারে রাখুন। পণ্য পরিবর্তন করলে তার সঠিক নাম, দাম ও নিজস্ব পণ্যের ছবি ব্যবহার করুন।
-
-বর্তমান ছবিগুলো আপনার দেওয়া নকশার রেফারেন্স থেকে কেটে নেওয়া হয়েছে। মূল ছবির রেজোলিউশনের কারণে কিছু product thumbnail ছোট দেখাতে পারে; বিক্রির জন্য উচ্চ রেজোলিউশনের আসল product photo দিলে `assets/`-এ ফাইলটি রেখে তালিকার `image` মান বদলে দিন।
-
-WhatsApp ও ফোন নম্বর `+8801707944636`। নম্বর বদলালে `index.html`-এ `8801707944636` খুঁজে নতুন নম্বর বসান।
